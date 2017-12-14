@@ -2,11 +2,42 @@
 
 from bs4 import BeautifulSoup
 
+
+# Maps Public Welfare Foundation's cause terminology to Donations List
+# Website's
+CAUSE_AREAS = {
+        "Criminal Justice": "Criminal justice reform",
+        "President's Discretionary Fund": "FIXME",
+        "Special Initiative: Civil Legal Aid": "FIXME",
+        "Special Opportunities": "FIXME",
+        "Workers' Rights": "FIXME",
+        "Youth Justice": "FIXME",
+        }
+
+def mysql_quote(x):
+    '''
+    Quote the string x using MySQL quoting rules. If x is the empty string,
+    return "NULL". Probably not safe against maliciously formed strings, but
+    whatever; our input is fixed and from a basically trustable source..
+    '''
+    if not x:
+        return "NULL"
+    x = x.replace("\\", "\\\\")
+    x = x.replace("'", "''")
+    x = x.replace("\n", "\\n")
+    return "'{}'".format(x)
+
+
 def main():
     with open("data.html", "r") as f:
         soup = BeautifulSoup(f, "lxml")
 
     first = True
+
+    print("""insert into donations (donor, donee, amount, donation_date,
+    donation_date_precision, donation_date_basis, cause_area, url,
+    donor_cause_area_url, notes, affected_countries,
+    affected_regions) values""")
 
     for grant in soup.find_all("div", {"class": "grant-single"}):
         # These are just the div tags; what we want is broken down into futher
@@ -46,12 +77,21 @@ def main():
 
         donation_date = year.text + "-01-01"
 
+        cause_area = CAUSE_AREAS[program.text]
+
         print(("    " if first else "    ,") + "(" + ",".join([
-            donee,
-            amount,
-            term,
-            donation_date,
-            notes
+            "Public Welfare Foundation",  # donor
+            donee,  # donee
+            amount,  # amount
+            donation_date,  # donation_date
+            "year",  # donation_date_precision
+            "FIXME",  # donation_date_basis
+            cause_area,  # cause_area
+            "FIXME",  # url
+            "FIXME",  # donor_cause_area_url
+            notes,  # notes
+            "FIXME",  # affected_countries
+            "FIXME",  # affected_regions
         ]) + ")")
         first = False
 
