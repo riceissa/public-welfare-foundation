@@ -67,13 +67,16 @@ def main():
         program = grant.find("div", {"class": "grant-single-program"})
 
         donee = grantee.find("h4").text
-        notes = grantee.find_all("p")[1].text
+        location = grantee.find_all("p")[0].text.strip()
+        notes = grantee.find_all("p")[1].text.strip()
 
         amount, term = grant_amount.find_all("p")
         amount = amount.text.replace("$", "").replace(",", "")
         term = term.text
         assert term.startswith("Term: ")
         term = term[len("Term: "):]
+        # FIXME: term isn't used right now because we don't have a place to put
+        # term lengths in the donations table
 
         donation_date = year.text + "-01-01"
 
@@ -91,7 +94,7 @@ def main():
             mysql_quote("FIXME"),  # donor_cause_area_url
             mysql_quote(notes),  # notes
             mysql_quote("FIXME"),  # affected_countries
-            mysql_quote("FIXME"),  # affected_regions
+            mysql_quote(location),  # affected_regions
         ]) + ")")
         first = False
     print(";")
