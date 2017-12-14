@@ -88,7 +88,7 @@ def main():
             amount,  # amount
             mysql_quote(donation_date),  # donation_date
             mysql_quote("year"),  # donation_date_precision
-            mysql_quote("FIXME"),  # donation_date_basis
+            mysql_quote("donation log"),  # donation_date_basis
             mysql_quote(cause_area),  # cause_area
             mysql_quote("http://www.publicwelfare.org/grants-process/our-grants/"),  # url
             mysql_quote("FIXME"),  # donor_cause_area_url
