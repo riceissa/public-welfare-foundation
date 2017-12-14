@@ -90,7 +90,7 @@ def main():
             mysql_quote("year"),  # donation_date_precision
             mysql_quote("FIXME"),  # donation_date_basis
             mysql_quote(cause_area),  # cause_area
-            mysql_quote("FIXME"),  # url
+            mysql_quote("http://www.publicwelfare.org/grants-process/our-grants/"),  # url
             mysql_quote("FIXME"),  # donor_cause_area_url
             mysql_quote(notes),  # notes
             mysql_quote("FIXME"),  # affected_countries
