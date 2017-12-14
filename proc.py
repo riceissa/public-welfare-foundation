@@ -80,20 +80,21 @@ def main():
         cause_area = CAUSE_AREAS[program.text]
 
         print(("    " if first else "    ,") + "(" + ",".join([
-            "Public Welfare Foundation",  # donor
-            donee,  # donee
+            mysql_quote("Public Welfare Foundation"),  # donor
+            mysql_quote(donee),  # donee
             amount,  # amount
-            donation_date,  # donation_date
-            "year",  # donation_date_precision
-            "FIXME",  # donation_date_basis
-            cause_area,  # cause_area
-            "FIXME",  # url
-            "FIXME",  # donor_cause_area_url
-            notes,  # notes
-            "FIXME",  # affected_countries
-            "FIXME",  # affected_regions
+            mysql_quote(donation_date),  # donation_date
+            mysql_quote("year"),  # donation_date_precision
+            mysql_quote("FIXME"),  # donation_date_basis
+            mysql_quote(cause_area),  # cause_area
+            mysql_quote("FIXME"),  # url
+            mysql_quote("FIXME"),  # donor_cause_area_url
+            mysql_quote(notes),  # notes
+            mysql_quote("FIXME"),  # affected_countries
+            mysql_quote("FIXME"),  # affected_regions
         ]) + ")")
         first = False
+    print(";")
 
 
 if __name__ == "__main__":
