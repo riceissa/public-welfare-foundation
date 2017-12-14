@@ -2,7 +2,7 @@
 
 ## Getting data.html
 
-The table is loaded using JavaScript and the URL doesn't change when paginating
+The table on PWF's website is loaded using JavaScript and the URL doesn't change when paginating
 so it's a little annoying to get the data.
 
 The table script itself is pretty simple and you can find it at
