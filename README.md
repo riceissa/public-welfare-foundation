@@ -1,5 +1,11 @@
 # public welfare foundation
 
+This repo is for work on Vipul Naik's [Donations List Website](https://github.com/vipulnaik/donations).
+
+The issue that started this repo is: https://github.com/vipulnaik/donations/issues/2
+
+Data is at http://www.publicwelfare.org/grants-process/our-grants/
+
 ## Getting data.html
 
 The table on PWF's website is loaded using JavaScript and the URL doesn't change when paginating
@@ -42,3 +48,7 @@ the results. Store that in `data.html` and you're done.
 There might be a better way to do this. In particular clicking on each page and
 saving the DOM once that page has loaded, and repeating that, shouldn't be too
 bad.
+
+## License
+
+CC0 for the scripts, not sure about data.
