@@ -16,7 +16,7 @@ CAUSE_AREAS = {
 }
 
 CAUSE_AREA_URLS = {
-    "Criminal Justce": "http://www.publicwelfare.org/criminal-justice/",
+    "Criminal Justice": "http://www.publicwelfare.org/criminal-justice/",
     "President's Discretionary Fund": "http://www.publicwelfare.org/grants-process/program-guidelines/",
     "Special Initiative: Civil Legal Aid": "http://www.publicwelfare.org/civil-legal-aid/",
     "Special Opportunities": "http://www.publicwelfare.org/grants-process/program-guidelines/",
