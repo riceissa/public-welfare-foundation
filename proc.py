@@ -7,13 +7,22 @@ from bs4 import BeautifulSoup
 # Maps Public Welfare Foundation's cause terminology to Donations List
 # Website's
 CAUSE_AREAS = {
-        "Criminal Justice": "Criminal justice reform",
-        "President's Discretionary Fund": "FIXME",
-        "Special Initiative: Civil Legal Aid": "FIXME",
-        "Special Opportunities": "FIXME",
-        "Workers' Rights": "FIXME",
-        "Youth Justice": "FIXME",
-        }
+    "Criminal Justice": "Criminal justice reform",
+    "President's Discretionary Fund": "Custom/discretionary fund",
+    "Special Initiative: Civil Legal Aid": "Civil legal aid",
+    "Special Opportunities": "Customer/special opportunities",
+    "Workers' Rights": "Worker rights",
+    "Youth Justice": "Criminal justice reform/youth justice",
+}
+
+CAUSE_AREA_URLS = {
+    "Criminal Justce": "http://www.publicwelfare.org/criminal-justice/",
+    "President's Discretionary Fund": "http://www.publicwelfare.org/grants-process/program-guidelines/",
+    "Special Initiative: Civil Legal Aid": "http://www.publicwelfare.org/civil-legal-aid/",
+    "Special Opportunities": "http://www.publicwelfare.org/grants-process/program-guidelines/",
+    "Workers' Rights": "http://www.publicwelfare.org/workers-rights/",
+    "Youth Justice": "http://www.publicwelfare.org/youth-justice/",
+}
 
 def mysql_quote(x):
     '''
@@ -82,7 +91,8 @@ def main():
         donation_date = year.text + "-01-01"
 
         cause_area = CAUSE_AREAS[program.text]
-
+        cause_area_url = CAUSE_AREA_URLS[program.text]
+        
         print(("    " if first else "    ,") + "(" + ",".join([
             mysql_quote("Public Welfare Foundation"),  # donor
             mysql_quote(donee),  # donee
@@ -92,9 +102,9 @@ def main():
             mysql_quote("donation log"),  # donation_date_basis
             mysql_quote(cause_area),  # cause_area
             mysql_quote("http://www.publicwelfare.org/grants-process/our-grants/"),  # url
-            mysql_quote("FIXME"),  # donor_cause_area_url
+            mysql_quote(cause_area_url),  # donor_cause_area_url
             mysql_quote(notes),  # notes
-            mysql_quote("FIXME"),  # affected_countries
+            mysql_quote("United States"),  # affected_countries
             mysql_quote(location),  # affected_regions
         ]) + ")")
         first = False
