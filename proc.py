@@ -92,7 +92,7 @@ def main():
 
         cause_area = CAUSE_AREAS[program.text]
         cause_area_url = CAUSE_AREA_URLS[program.text]
-        
+
         print(("    " if first else "    ,") + "(" + ",".join([
             mysql_quote("Public Welfare Foundation"),  # donor
             mysql_quote(donee),  # donee
