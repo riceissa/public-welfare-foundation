@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # License: CC0 https://creativecommons.org/publicdomain/zero/1.0/
 
+import re
 from bs4 import BeautifulSoup
 
 
@@ -78,6 +79,10 @@ def main():
 
         donee = grantee.find("h4").text
         location = grantee.find_all("p")[0].text.strip()
+        # Having this pattern means we're basically dealing just with "City
+        # Name, STATE CODE" instances. This means we don't have to check for
+        # multiple locations, so no need to separate by pipes.
+        assert re.match(r"[A-Za-z. ]+, [A-Z][A-Z]", location), location
         notes = grantee.find_all("p")[1].text.strip()
 
         amount, term = grant_amount.find_all("p")
