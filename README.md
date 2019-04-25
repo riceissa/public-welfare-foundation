@@ -20,6 +20,8 @@ Download data into CSV:
 Use CSV file to generate SQL file:
 
 ```bash
+# NOTE: don't run proc.py, which is the processing script for the old version
+# of the website.
 ./proc2.py data.csv > out.sql
 ```
 
