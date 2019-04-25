@@ -12,6 +12,7 @@ CAUSE_AREAS = {
     "President's Discretionary Fund": "Custom/discretionary fund",
     "Special Initiative: Civil Legal Aid": "Civil legal aid",
     "Special Opportunities": "Customer/special opportunities",
+    "Special Opportunity": "Customer/special opportunities",
     "Workers' Rights": "Worker rights",
     "Youth Justice": "Criminal justice reform/youth justice",
 }
@@ -21,6 +22,7 @@ CAUSE_AREA_URLS = {
     "President's Discretionary Fund": "http://www.publicwelfare.org/grants-process/program-guidelines/",
     "Special Initiative: Civil Legal Aid": "http://www.publicwelfare.org/civil-legal-aid/",
     "Special Opportunities": "http://www.publicwelfare.org/grants-process/program-guidelines/",
+    "Special Opportunity": "http://www.publicwelfare.org/grants-process/program-guidelines/",
     "Workers' Rights": "http://www.publicwelfare.org/workers-rights/",
     "Youth Justice": "http://www.publicwelfare.org/youth-justice/",
 }
