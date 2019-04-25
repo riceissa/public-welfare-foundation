@@ -6,7 +6,24 @@ The issue that started this repo is: https://github.com/vipulnaik/donations/issu
 
 Data is at http://www.publicwelfare.org/grants-process/our-grants/
 
-## Getting data.html
+## Instructions (NEW)
+
+Download data into CSV:
+
+```bash
+# NOTE: make sure to edit the range in the scrape file
+# (https://github.com/riceissa/public-welfare-foundation/blob/fe1219f75b97f54434123e0fea61d2647ce27659/scrape.py#L15)
+# to match the actual page numbers on the website.
+./scrape.py > data.csv
+```
+
+Use CSV file to generate SQL file:
+
+```bash
+./proc2.py data.csv > out.sql
+```
+
+## Getting data.html (OLD; before 2019-04-25)
 
 The table on PWF's website is loaded using JavaScript and the URL doesn't change when paginating
 so it's a little annoying to get the data.
